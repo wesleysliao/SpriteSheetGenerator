@@ -1,5 +1,5 @@
 from PIL import Image
-import sys, os, math, time
+import sys, os, math
 max_frames_row = 8
 frames = []
 tile_width = 0
