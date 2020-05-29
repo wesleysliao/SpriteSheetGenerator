@@ -1,6 +1,6 @@
 from PIL import Image
-import os, math, time
-max_frames_row = 10.0
+import sys, os, math, time
+max_frames_row = 8
 frames = []
 tile_width = 0
 tile_height = 0
@@ -8,13 +8,18 @@ tile_height = 0
 spritesheet_width = 0
 spritesheet_height = 0
 
-files = os.listdir("frames/")
+framedir = sys.argv[1]
+spritename = os.path.basename(os.path.normpath(framedir))
+
+files = os.listdir(framedir)
 files.sort()
+print(os.path.basename(os.path.normpath(framedir)))
+
 print(files)
 
 for current_file in files :
     try:
-        with Image.open("frames/" + current_file) as im :
+        with Image.open(framedir + current_file) as im :
             frames.append(im.getdata())
     except:
         print(current_file + " is not a valid image")
@@ -47,4 +52,4 @@ for current_frame in frames :
     
     spritesheet.paste(cut_frame, box)
     
-spritesheet.save("spritesheet" + time.strftime("%Y-%m-%dT%H-%M-%S") + ".png", "PNG")
+spritesheet.save(framedir + spritename + ".png", "PNG")
