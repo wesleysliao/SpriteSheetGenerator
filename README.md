@@ -1,8 +1,8 @@
-##Source code for the sprite sheet generator explained in  as as
+Based on sprite sheet script from this tutorial:
 https://minzkraut.com/2016/11/23/making-a-simple-spritesheet-generator-in-python/
 
-##Usage:    
-- Copy all your single frames into "frames/"  
-- Optionally change `max_frames_row` on line 3 (How many frames until a linebreak happens)  asas
-- Run `python2.7 createSpriteSheet.py`   
-- Enjoy the sprite sheet that appeared in the folder  
+Usage:    
+ `python3 spritesheet.py [directory]`
+ 
+ All images in the given directory will be compiled into a sprite sheet in filename order.
+ Finished sheet will be outputted as a .png in the given directory, named after the directory folder.
